@@ -1,0 +1,27 @@
+<form id="sum" method="post">
+  <label for="x">Enter value of x</label><br>
+  <input type="text" id="x" name="x"><br>
+  <label for="n">Enter value of n</label><br>
+  <input type="text" id="n" name="n"><br><br>
+  <input type="submit" onclick="total()" value="Submit">
+</form>
+<!-- <button onclick="total()">Submit</button> -->
+<div id="display" style="height: 50px; width: 100%;"></div>
+
+
+<script>
+function total(){
+    var post_data = {
+        'x' : parseInt(document.forms["sum"]["x"].value),
+        'n' : parseInt(document.forms["sum"]["n"].value),
+    }
+    //alert(a+b)
+    // var display=document.getElementById("display")
+    $.ajax({
+        type: "POST",
+        url: "/total",
+        data: post_data,
+    });
+}
+</script>
+
